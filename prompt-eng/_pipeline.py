@@ -60,7 +60,7 @@ def load_config():
 
 def create_payload(model, prompt, target="ollama", **kwargs):
     """
-    Create the Request Payload in the format required byt the Model Server
+    Create the Request Payload in the format required by the Model Server
     @NOTE: 
     Need to adjust here to support multiple target formats
     target can be only ('ollama' or 'open-webui')
@@ -89,7 +89,7 @@ def create_payload(model, prompt, target="ollama", **kwargs):
             "messages": [ {"role" : "user", "content": prompt } ]
         }
 
-        # @NOTE: Taking not of the syntaxes we tested before; none seems to work so far 
+        # @NOTE: Taking note of the syntaxes we tested before; none seems to work so far 
         #payload.update({key: value for key, value in kwargs.items()})
         #if kwargs:
         #   payload["options"] = {key: value for key, value in kwargs.items()}
@@ -107,8 +107,8 @@ def model_req(payload=None):
     # CUT-SHORT Condition
     try:
         load_config()
-    except:
-        return -1, f"!!ERROR!! Problem loading prompt-eng/_config"
+    except Exception as e:
+        return -1, f"!!ERROR!! Problem loading prompt-eng/_config. Exception: {e}"
 
     url = os.getenv('URL_GENERATE', None)
     api_key = os.getenv('API_KEY', None)
@@ -119,15 +119,15 @@ def model_req(payload=None):
     if api_key: headers["Authorization"] = f"Bearer {api_key}"
 
     #print(url, headers)
-    print(payload)
+    print("Payload:", payload)
 
     # Send out request to Model Provider
     try:
         start_time = time.time()
         response = requests.post(url, data=json.dumps(payload) if payload else None, headers=headers)
         delta = time.time() - start_time
-    except:
-        return -1, f"!!ERROR!! Request failed! You need to adjust prompt-eng/config with URL({url})"
+    except Exception as e:
+        return -1, f"!!ERROR!! Request failed! You need to adjust prompt-eng/config with URL({url}). Exception: {e}"
 
     # Checking the response and extracting the 'response' field
     if response is None:
@@ -164,7 +164,7 @@ if __name__ == "__main__":
     PROMPT = MESSAGE 
     payload = create_payload(
                          target="open-webui",   
-                         model="llama3.2:latest", 
+                         model="Llama-3.2-3B-Instruct", 
                          prompt=PROMPT, 
                          temperature=1.0, 
                          num_ctx=5555555, 
