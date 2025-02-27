@@ -90,7 +90,39 @@ We explored multiple prompting strategies with different AI models to determine 
 
 Our findings indicate that:
 
-- **Level-1 automation excels in speed** but may lack refinement in structuring markdown reports.
+- **Level-1** automation excels in speed, typically generating outputs in **5ms to 27ms** depending on model and parameters (temperature range **0.7 - 0.9**). However, it may lack refinement in structuring markdown reports, often producing concise but underdeveloped sections that require additional post-processing for enhanced coherence and formatting.
+
+### **Zero-Shot Analysis Summary**
+
+| Aspect | Insights |
+| --- | --- |
+| **Models Used** | Llama-3.2-3B-Instruct, Qwen2, Gemma2, Gemini-2.0-Flash |
+| **Temperature Range** | 0.7 - 0.9 for balance between creativity & consistency |
+| **Nature of Text** | Produces concise outputs but lacks structure |
+| **Response Time** | Fast (~5s - 27s), depending on model |
+| **Accuracy & Completeness** | Direct but sometimes incomplete |
+| **Formatting & Errors** | Can miss deeper structure or guidelines |
+| **Pros** | Fast setup, minimal context needed |
+| **Cons** | Risk of generic or incomplete responses |
+
+### **Few-Shot Analysis Summary**
+
+| Aspect | Insights |
+| --- | --- |
+| **Nature of Text** | More structured, context-aware due to examples |
+| **Response Time** | Slightly longer (~14s - 16s) |
+| **Pros** | Better formatting, coherence |
+| **Cons** | Requires well-chosen examples, token-intensive |
+| **Best Model Selection** | Qwen2 for most structured outputs, Llama-3.2-3B as a strong alternative |
+
+### **Model Performance Comparison**
+
+| Model | Best Use Case | Performance Insights |
+| --- | --- | --- |
+| **Qwen2** | Overall Best | Well-structured, detailed text, especially in few-shot prompting |
+| **Llama-3.2-3B** | Runner-Up | Coherent outputs, slightly longer response time |
+| **Gemma2** | Adequate | Serviceable but occasional clarity issues |
+| **Gemini-2.0-Flash** | Moderate | Inconsistent formatting at times |
 - **Level-2 automation provides a more structured and formatted output** but requires additional processing time.
 - **AI model selection significantly impacts the final output quality**, with some models better suited for markdown-specific formatting.
 
