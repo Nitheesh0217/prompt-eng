@@ -1,3 +1,5 @@
+![GenI-Banner](https://github.com/genilab-fau/genial-fau.github.io/blob/8f1a2d3523f879e1082918c7bba19553cb6e7212/images/geni-lab-banner.png?raw=true)
+
 # Developing an Automated GitHub Markdown Report Using Notebooks
 
 A study on optimizing automated report generation using different prompt engineering techniques and AI models, integrating it as a core functionality within the Career Study Mentor Bot for project planning and structured reporting.
