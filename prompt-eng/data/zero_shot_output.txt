@@ -1,69 +1,54 @@
-# Report Skeleton: Financial Literacy Research Using Machine Learning
+# Report Skeleton: Health Tracking Chatbot 
 
 ## Project Overview
 
-- **Project Title:** Research on Financial Literacy Using Machine Learning
-- **Problem Statement:** Many individuals lack the fundamental knowledge and skills necessary to make informed financial decisions, leading to potential financial instability and vulnerability. This project aims to address this issue by leveraging machine learning techniques to better understand and predict factors influencing financial literacy.
-
-- **Goal:** Develop a predictive model using machine learning to identify key drivers of financial literacy and assess individual risk levels.
+- **Project Title:** Health Tracking Chatbot
+- **Problem Statement:** Many individuals struggle to consistently track their health metrics (sleep, exercise, nutrition) due to lack of time, motivation, or accessible tools. This can lead to delayed identification of potential health issues and hinder progress towards wellness goals. 
+- **Goal:** Develop a user-friendly chatbot that empowers users to effectively monitor their health by providing convenient tracking mechanisms, personalized insights, and motivational support.
 - **Key Objectives:**
-  - Objective 1: Gather and curate a comprehensive dataset encompassing demographic information, socioeconomic factors, and financial knowledge assessments.
-  - Objective 2: Employ supervised learning algorithms (e.g., classification, regression) to build a predictive model capable of accurately classifying individuals based on their financial literacy level.
-  - Objective 3: Identify the most influential features contributing to the prediction model's accuracy and interpret their significance in relation to financial literacy.
-
-- **Scope:** This research will focus on building a proof-of-concept predictive model for a specific population group (e.g., young adults, low-income communities). The scope does not include developing a fully deployed application or intervention program.
+  - Objective 1: Design an intuitive conversational interface for easy data input (sleep duration, exercise type & intensity, meals consumed).
+  - Objective 2: Implement algorithms to analyze user data and generate personalized health reports and recommendations.
+  - Objective 3: Integrate motivational features (reminders, progress tracking, rewards) to encourage consistent engagement with the chatbot.
+- **Scope:** The project will focus on developing a prototype chatbot capable of tracking sleep, exercise, and basic nutrition information. Future iterations may expand to include integration with wearable devices and personalized health plans.
 
 ## Methodology
 
 - **Data & Methods:**
-    - Data Sources: Identify and utilize relevant datasets containing demographic information, socioeconomic indicators (e.g., income, education level), and financial literacy assessments. Explore publicly available databases or conduct surveys to collect necessary data.
-    - Feature Engineering: Preprocess and transform raw data into suitable features for machine learning algorithms. This may involve encoding categorical variables, handling missing values, and creating new features based on domain expertise.
+    - Data Collection: User input will be collected through natural language processing (NLP) techniques within the chatbot interface.
+    - Data Analysis: Statistical analysis and machine learning algorithms will be employed to identify patterns and generate insights from user data.
+    - Evaluation: The chatbot's effectiveness will be evaluated based on user feedback, engagement metrics (frequency of use, completion rates), and accuracy of generated insights.
 
 - **Notebook Code Blocks:**
   ```python
-  # Import necessary libraries (e.g., pandas, scikit-learn)
-  import pandas as pd
-  from sklearn.model_selection import train_test_split
+  # Example: NLP code for extracting health data from user input
+  import spacy 
 
-  # Load and preprocess the dataset
-  data = pd.read_csv('financial_literacy_data.csv') 
+  nlp = spacy.load("en_core_web_sm")
+  user_input = "I slept for 7 hours last night and went for a 30-minute run."
+  doc = nlp(user_input)
 
-  # Define features (X) and target variable (y)
-  X = data[['age', 'education', 'income']] 
-  y = data['financial_literacy_score']
-
-  # Split the dataset into training and testing sets
-  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
+  # Extract relevant information (sleep duration, exercise type & duration)
   ```
-
 ## Results & Evaluation
 
-- **Results Overview:** This section will present key findings from the developed machine learning model. Include visualizations (e.g., accuracy scores, confusion matrices, feature importance plots) to effectively communicate results.
-
+ - **Results Overview:** [Document key findings from user testing and data analysis. For example: percentage of users who consistently tracked their health metrics, improvement in sleep quality or exercise frequency observed.]
 - **Evaluation Metrics:**
-    - Accuracy: Measure the percentage of correctly classified instances.
-    - Precision: Evaluate the model's ability to accurately predict positive cases (individuals with high financial literacy).
-    - Recall: Assess the model's ability to capture all positive cases.
-    - F1-Score: Balance precision and recall for a comprehensive performance metric.
+
+    - User Engagement: Track chatbot usage frequency, session duration, and completion rates for different tasks (data input, report viewing). 
+    - Data Accuracy: Evaluate the accuracy of the chatbot's data extraction and analysis algorithms.
+    - User Satisfaction: Conduct surveys or interviews to gather feedback on the chatbot's usability, helpfulness, and overall experience.
 
 ## Discussion & Conclusion
 
-- **Discussion:** Interpret the results of the predictive model, discussing the most influential factors contributing to financial literacy. Analyze potential limitations of the model and suggest areas for improvement.
-- **Conclusion:** Summarize key takeaways from the research, highlighting the insights gained into the drivers of financial literacy. Propose future directions for research, such as developing targeted interventions based on the identified risk factors.
+ - **Discussion:** [Analyze the results obtained in the context of the project goals. Discuss potential limitations of the chatbot and areas for improvement.]
+- **Conclusion:** [Summarize key takeaways from the project and highlight the impact of the chatbot on user health tracking habits. Propose future development directions, such as integrating with wearable devices or expanding to other health domains.]
 
 ## Appendix/Additional Resources
 
-- Supporting Code: Include additional code snippets for data preprocessing, model training, and visualization.
+ - **Supporting Code and Data:**
   ```python
-  # Additional code for feature importance analysis
-  from sklearn.inspection import permutation_importance
-
-  result = permutation_importance(model, X_test, y_test, n_repeats=10)
-  print(result.importances_mean)
+  # Example: Code for generating personalized health reports based on analyzed data 
   ```
-
-- Data Sources: Provide detailed information on the datasets used in the research, including links to publicly available resources.
 
 
 
