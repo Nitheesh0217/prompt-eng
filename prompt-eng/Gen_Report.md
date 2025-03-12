@@ -1,7 +1,3 @@
-Here is a formatted version of the report:
-
----
-
 # Health Tracking Chatbot: A Project Report
 
 ## 1. Introduction
