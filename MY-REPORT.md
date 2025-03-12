@@ -9,7 +9,7 @@ A study on optimizing automated report generation using different prompt enginee
 
 # Research Question
 
-How do different automation prompt engineering techniques and AI models compare in terms of efficiency, accuracy, and reliability for generating automated GitHub markdown reports using Jupyter Notebooks, and how can this be seamlessly integrated into an AI-driven project planning and reporting system?
+How do different automation prompt engineering techniques and AI models compare in terms of efficiency, accuracy, and reliability for generating automated GitHub markdown reports using Jupyter Notebooks?
 
 ## Arguments
 
@@ -36,7 +36,7 @@ How do different automation prompt engineering techniques and AI models compare 
 
 # Research Method
 
-We conducted a comparative study by designing controlled experiments to test different AI models and prompting strategies for GitHub markdown report generation. Evaluation criteria include response latency, content structure, and adherence to formatting requirements.
+We conducted a comparative study by designing controlled experiments to test different AI models and prompting strategies for GitHub markdown report generation. Evaluation criteria include response latency, computational overhead, accuracy, readability, and Markdown formatting.
 
 **Experimental Objectives**
 
@@ -90,9 +90,9 @@ We explored multiple prompting strategies with different AI models to determine 
 
 Our findings indicate that:
 
-- **Level-1** automation excels in speed, typically generating outputs in **5ms to 27ms** depending on model and parameters (temperature range **0.7 - 0.9**). However, it may lack refinement in structuring markdown reports, often producing concise but underdeveloped sections that require additional post-processing for enhanced coherence and formatting.
+- **Level-1** automation excels in speed, typically generating outputs in **5ms to 27ms** depending on model and parameters (temperature range **0.7 - 0.9**). However, it may lack refinement in structured formatting.
 
-### **Zero-Shot Analysis Summary**
+### Zero-Shot Analysis Summary
 
 | Aspect | Insights |
 | --- | --- |
@@ -105,7 +105,7 @@ Our findings indicate that:
 | **Pros** | Fast setup, minimal context needed |
 | **Cons** | Risk of generic or incomplete responses |
 
-### **Few-Shot Analysis Summary**
+### Few-Shot Analysis Summary
 
 | Aspect | Insights |
 | --- | --- |
@@ -115,14 +115,35 @@ Our findings indicate that:
 | **Cons** | Requires well-chosen examples, token-intensive |
 | **Best Model Selection** | Qwen2 for most structured outputs, Llama-3.2-3B as a strong alternative |
 
-### **Model Performance Comparison**
+### Self-Consistency Analysis Summary
+
+| Aspect | Insights |
+| --- | --- |
+| **Nature of Text** | Highly refined, iteratively improved outputs |
+| **Response Time** | Longer (~20s - 35s) due to multiple response evaluations |
+| **Pros** | Higher accuracy, self-correction of errors |
+| **Cons** | Increased processing time, requires additional computation |
+| **Best Model Selection** | Llama-3.2-3B for iterative refinements, Qwen2 for structured outputs |
+
+### Chain-of-Thought Analysis Summary
+
+| Aspect | Insights |
+| --- | --- |
+| **Nature of Text** | Step-by-step logical reasoning improves coherence |
+| **Response Time** | Moderate (~18s - 30s) |
+| **Pros** | Strong logical flow, improved complex problem-solving |
+| **Cons** | Token-intensive, may produce overly verbose responses |
+| **Best Model Selection** | Qwen2 for detailed step-by-step outputs, Llama-3.2-3B for structured responses |
+
+### Model Performance Comparison
 
 | Model | Best Use Case | Performance Insights |
 | --- | --- | --- |
-| **Qwen2** | Overall Best | Well-structured, detailed text, especially in few-shot prompting |
-| **Llama-3.2-3B** | Runner-Up | Coherent outputs, slightly longer response time |
+| **Qwen2** | Overall Best | Well-structured, detailed text, especially in few-shot and chain-of-thought prompting |
+| **Llama-3.2-3B** | Runner-Up | Coherent outputs, strong for self-consistency methods |
 | **Gemma2** | Adequate | Serviceable but occasional clarity issues |
-| **Gemini-2.0-Flash** | Moderate | Inconsistent formatting at times |
+| **Gemini-2.0-Flash** | Moderate | Inconsistent formatting at times, performs better in zero-shot tasks |
+
 - **Level-2 automation provides a more structured and formatted output** but requires additional processing time.
 - **AI model selection significantly impacts the final output quality**, with some models better suited for markdown-specific formatting.
 
@@ -143,4 +164,4 @@ Future studies can focus on:
 - Integrating the markdown report automation system with the Career Study Mentor Bot to enhance its functionality as a project planner and automated report generator.
 - Enhancing AI-driven project tracking by utilizing markdown-based structured reporting within the bot framework.
 
-This research provides valuable insights into how AI-powered automation can enhance structured documentation and workflow automation in software projects, with a focus on markdown report generation for GitHub repositories and AI-driven career study mentorship systems.
+This research provides valuable insights into how AI-powered automation can enhance structured documentation and workflow automation in software projects, with a focus on markdown report generation for GitHub repositories.
